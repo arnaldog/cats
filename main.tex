@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%% MATH COMMANDS SHORCUTS %%%%
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\txt}[1]{\text{#1}}
+
+\newcommand{\D}[2]{\frac{d#1}{\d#2}} 
+
+%%% TEXT SHORCUT COMMANDS %%%
+\newcommand{\italic}[1]{\textit{#1}}
+
+
+\title{Consideraciones y Definiciones Matemáticas}
+
+\begin{document}
+\maketitle
+
+% EL TIEMPO
+Se puede definir al tiempo como un continuo $t \in \R+$ ó $\R$, donde $t = h(u), u \in
+\R$, donde $$\frac{dh(u)}{du} > 0, \quad \forall u \in R$$. El tiempo $t \in
+\R_+$ podría especificarse como $\R_+ - \{0\}$ suponiendo como desconocido el
+tiempo cero o \textit{original}.
+
+Al respecto, la función $h(u)$ es estrictamente creciente. Al respecto, se puede
+considerar a la velocidad del tiempo como la rapidez de cambio de la 
+$$
+	h(u) = \int_{\epsilon}^{u} \frac{f'(s)}{f(s)}ds = \log f(s) 
+$$
+
+Por lo tanto, podríamos considerar que el tiempo $t$ correponde a una percepción
+logaritmica de un fenómeno secuencial. 
+
+% MOTION AND PHASE STATE
+El movimiento está asociado a un conjunto $M \in \R$ llamado \textit{espacio de
+fase}.
+En la mecánica clásica, el espacio de fase corresponde a todos los posibles
+estados de un sistema físico.
+Por estado, se entiende la posición y el \textit{momentum}, porque con ellos se
+puede con ellos se puede determinar el comportamiento futuro de tal sistema.
+La configuración de un espacio puede estar determinada por una \textit{variedad}
+$M$ (dimensionalmente finita o infinita) para cada posición $q \in M$ y momentum
+$p$, cuyos valores están en el espacio cotangente\footnote{Las velocidades
+siempre viven en el espacio tangente $T_q M$, el momentum es definido como $p :=
+\partial L  \partial q $, Siendo $L(q, \dot{q}, t)$ el \textit{Lagrangiano} del sistema}  $T_q^*M$. Por lo tanto, el
+espacio de estados está naturalmente representado  por
+$$
+	T^* M := \{ (q, p) : q \in M, p \in T_q^* M \}
+$$
+y un conjunto de mapas $\Phi_t: M \rightarrow M$, describiendo el cambio en el
+instante $t$; $\Phi_t(M)$ es la \textit{fotografía instantanea} en $t$.
+
+El ensemble de mapas $\Phi_t$, sujetos a la evolución temporal
+
+\begin{eqnarray}
+	\Phi_0 &=& \text{id}_M \text{(The identity of $M$) } \\
+	\Phi_{t+s} &=& \Phi_i o \Phi_s
+\end{eqnarray}
+
+wena wena javier 
+ 
+\end{document}
+
+
