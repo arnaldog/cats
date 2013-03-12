@@ -8,10 +8,8 @@ FLAGS=-output-directory=$(DIR) -output-format=$(FORMAT)  -halt-on-error
 
 all:
 	make pdf
-	make preview
-
 pdf:
-	pdflatex $(FLAGS) $(SRC)
+	pdflatex $(FLAGS) tex/$(SRC)
 
 preview:
 	/Applications/Preview.app/Contents/MacOS/Preview $(DIR)/$(SRC:.tex=.pdf)

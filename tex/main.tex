@@ -1,0 +1,487 @@
+\documentclass[12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%% MATH COMMANDS SHORCUTS %%%%
+\newcommand{\R}{\ensuremath{\mathbb{R}} }
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\txt}[1]{\text{#1}}
+
+\newcommand{\D}[2]{\frac{d#1}{\d#2}} 
+
+%%% TEXT SHORCUT COMMANDS %%%
+\newcommand{\italic}[1]{\textit{#1}}
+
+\newtheorem{mydef}{Definición}
+\newtheorem{mytheo}{Teorema}
+
+\title{Propuesta de Tésis Arnaldo Gaspar}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Introducción}
+% TEORIA DEL CAOS
+\section{Time and Chaos principles}
+Se puede definir al tiempo como un continuo $t \in \R+$ ó $\R$, donde el
+funcional $t = uh(t), u \in
+\R$, donde $$\frac{dh(u)}{du} > 0, \quad \forall u \in R$$. El tiempo $t \in
+\R_+$ podría especificarse como $\R_+ - \{0\}$ suponiendo como desconocido el
+tiempo cero o \textit{original}.
+
+Al respecto, la función $h(u)$ es estrictamente creciente. Al respecto, se puede
+considerar a la velocidad del tiempo como la rapidez de cambio de la 
+$$
+	h(u) = \int_{0}^{u} \frac{df(s)}{dsf(s)}ds = \int_{0}^{u}\frac{df(s)}{f(s)} =  \log f(u)
+$$
+Si $h(u) = u^2$, entonces 
+$$
+	e^{u^2} = f(u) 
+$$
+
+Por lo tanto, podríamos considerar que el tiempo $t$ correponde a una percepción
+logaritmica de un fenómeno exponencial. 
+
+Uno de los conceptos más importantes en la percepción del Universo y la vida es
+el del \textit{movimiento}. 
+
+% MOTION AND PHASE STATE
+El movimiento está asociado a un conjunto $M \in \R$ llamado \textit{espacio de
+fase}.
+En la mecánica clásica, el espacio de fase corresponde a todos los posibles
+estados de un sistema físico.
+Por estado, se entiende la posición y el \textit{momentum}, porque con ellos se
+puede con ellos se puede determinar el comportamiento futuro de tal sistema.
+La configuración de un espacio puede estar determinada por una \textit{variedad}
+$M$ (dimensionalmente finita o infinita) para cada posición $q \in M$ y momentum
+$p$, cuyos valores están en el espacio cotangente\footnote{Las velocidades
+siempre viven en el espacio tangente $T_q M$, el momentum es definido como $p :=
+\partial L  \partial q $, Siendo $L(q, \dot{q}, t)$ el \textit{Lagrangiano} del sistema}  $T_q^*M$. Por lo tanto, el
+espacio de estados está naturalmente representado  por
+$$
+	T^* M := \{ (q, p) : q \in M, p \in T_q^* M \}
+$$
+y un conjunto de mapas $\Phi_t: M \rightarrow M$, describiendo el cambio en el
+instante $t$; $\Phi_t(M)$ es la \textit{fotografía instantanea} en $t$.
+
+El ensemble de mapas $\Phi_t$, sujetos a la evolución temporal
+
+\begin{eqnarray}
+	\Phi_0 &=& \text{id}_M \text{(La identidad de $M$) } \\
+	\Phi_{t+s} &=& \Phi_t \circ \Phi_s
+\end{eqnarray}
+
+En un caso simple, cuando $t$ está medido discretamente en incrementos iguales
+de tiempo, un \textit{sistema dinámico} es solamente la secuencia $(f^n)_n$ de
+todas las iteraciones de la funcion $f: M \rightarrow M$, por ejemplo:
+$$
+	f^0 = \text{id}_M, \quad f^n = f \circ \ldots \circ f
+$$
+\newcommand{\ra}{\rightarrow}
+Entonces, se entenderá al sistema dinámico $f: M \rightarrow M$ como un sitema discreto
+generado por $f$.  El problema principal que le concierne a esos sistemas es el
+siguiente: \textit{dada una función $f$ y un valor inicial $a$, ¿que ocurre con
+la secuencia}
+$$
+	x_0 = a, \quad x_n = f(x_{n-1}) \quad \forall n \in \mathbb{N}^+
+$$
+\textit{de todas las iteraciones de $f$ computadas en $a$?}
+
+\newcommand{\ti}{\textit}
+\newcommand{\bigO}{\mathcal{O}}
+La secuencia $(f^n(a))_n$ es llamada \textit{trayectoria} de $a$, y el conjunto
+de sus valores, la \ti{orbita} de $a$. Usualmente denotada por $\bigO$
+
+La teoría de las secuencias recurrentes tratan con una sola trayectoria a la
+vez, mientras que la teoría de los sistemas dinámicos tratan con un
+\ti{ensemble} de todas las trayectorias de un sistema.
+
+Poincaré fue el primero en el estudio global de las iteraciones (y el estudio
+cualitativo de los sitemas dinámicos).
+
+% peridic point
+Si existe un número $n$ en $\mathbb{N}^+$ tal que $f^n(a) = a$, entonces $a$ es
+llamado un \ti{punto periódico} (de período $n$); entonces el \ti{el periodo
+principal} de un punto periódico $a$ es el menor $n \in \mathbb{N}^+$ tal que 
+$f^n(a) = a$. La orbita de cualquier punto periódico es un conjunto finito. Esto
+rduce la orbita a un \ti{singleton} si $a$ es un punto fijo de $f$, por ejemplo 
+$$
+	f(a) = a
+$$
+
+La identidad de \R admite todos los puntos de \R como puntos fijos. El mapa
+$f(x) = -x, \quad x \in \R$, tiene un uno punto fijo (el cual es el origen),
+todos los otros son periodicos, con período principal 2.
+
+$$
+	f(0)=0, f^2(0)=0, f(1) = -1, f^2(1)=1
+$$
+\paragraph{Conjuntos invariantes} Sea el mapeo $f: M \ra M $, un subconjunto $A
+\subset M$, se dice que es invariante si
+$$
+	f(A) = A
+$$
+
+\newcommand{\map}{\ensuremath{f: M \ra M} }
+\paragraph{Análisis Gráfico de Pasos} dado un sistema dinámico \map el \ti{análisis
+gráfico} de $f$ se realiza de la siguiente manera.
+\begin{enumerate}
+	\item Dibujar una linea perpendicular al eje $x$ en $x_0 = a$ e
+intersectarlo en en el gráfico de $f(x)$ en $f(x_0)$. En el punto $(x_0,
+f(x_0))$
+	\item Luego una linea paralela en la dirección de $x$ hacia la curva
+$x=y$, llegando hasta el punto $(f(x_0), f(x_0))$.
+	\item Desde $(f(x_0), f(x_0))$ perpendicularmente a $x$ llegar hasta la
+curva, en el punto $(f(x_0), f(f(x_0)) = (f(x_0), f^2(x_0))$ .
+	\item Asi consecutivamente.
+\end{enumerate}
+La intersección de $f$ con $x=y$ determina los puntos fijos.
+De acuerdo a donde se comience se puede ver la orientación del avance y también
+los pasos muestran la monotonía.
+
+Por ejemplo, el mapa 
+$$
+	f: [-1, \infty) \ra [-1, \infty), \quad f=\sqrt{1 + x} 
+$$
+
+tiene soluciones de $x^2 = x + 1$ con $x = \varphi = (1 + \sqrt{5})/2$ el
+que sería un número fijo para $f$.  El análisis gráfico revela la convergencia
+de todas las trayectorias hacia $\varphi$; de una forma más precisa, si $x_0 <
+\varphi$, entonces $f^n(x_0) \nearrow \varphi$, y si $x_0 > \varphi$, entonces
+$f^n(x_0) \searrow \varphi$.
+
+
+Para el caso de $f: \R \ra \R$, con $f(x) = \lambda x$, el comportamiento cambia
+según el valor de $\lambda$.
+
+%%% UN Atractor
+\begin{mydef}
+Un punto $p$, se dice que es un \ti{atractor} para un sistema dinámico \map si
+existe una vecindad $U$ de $p$ tal que
+$$
+	f^n(x_0) \ra p \quad \forall x_0 \in U
+$$ 
+\end{mydef}
+
+El conjunto de condiciones iniciales sobre las cuales itera $f$ y converge a $p$
+es llamado \ti{dominio de atracción} de $p$.
+
+\begin{mydef}
+Un punto $p$ es llamado una fuente o (repeledor) para \map si existe una
+vecindad $U$ de $p$, tal que $\forall x_0 \in U, x_0 \not = p$ existe un $n \in
+\N$ para el cual $f^n(x_0) \not \in U$
+\end{mydef} 
+
+También existen los puntos fijos \ti{indeferentes} que no son atractores ni
+repeledores, con el caso del origen respecto al sistema dinámico generado por la
+identidad de \R.
+
+\paragraph{Hiperbolicidad} Suponga que \map es un mapa \ti{suave} actuando en
+intervalos. Una orbita periódica $\bigO(p)$ de $f$ es \ti{hiperbolica} si
+$$
+	| (f^m)(p) \not = 1 |
+$$
+donde obviamente $p$ es un punto periódico y donde $m$ es su período principal.
+
+Si se considera un $k \in \{0, \ldots, m-1\}$ cualquiera, derivando la expresión
+se obtiene que 
+$$
+	(f^m)'(x) = (f^m)'(p) \quad \forall x \in \bigO(p)
+$$
+
+Entonces una orbita se aproxima a un conjunto cerrado mediante el uso de la
+distancia de $x$ a un conjunto $A$, mediante
+$$
+	d(x, A) = \inf \{|x-a|; a \in A\}
+$$
+
+\begin{mytheo}
+Suponga que f es un mapa suave del tipo $C^1$ en el intervalo $M$ y $p$ es un
+punto periódico de período principal $m$.
+\begin{itemize}
+	\item si $|()'() < 1|$, entonces existe una vecindad $U$ de $\bigO(p)$ tal
+que $f(\overline{U}) \subset U$, y $\forall x \in U$
+$$
+	\lim_{n \ra \infty} d(f^n(x), \bigO(p)) = 0
+$$
+	\item 
+\end{itemize}
+\end{mytheo}
+
+
+%\chapter{Teoría del Cáos}
+%% EL TIEMPO
+%\chapter{Sistemas Dinámicos y Comportamiento Caótico}
+%\section{Sistemas dinámicos}
+%\section{Conjuntos Invariantes}
+%\section{Teorema de Sharkovsky}
+%\section{Equivalencia Topológica}
+%\section{Estabilidad Estructural}
+%\section{El Mapa de Poincaré}
+%\section{Dependencia Sensitiva a Condiciones Iniciales}
+%\section{Exponentes de Lyapunov}
+%\section{Dinámicas Symbólicas}
+%\section{Mapa Logistico para $\lambda =4$}
+%\section{The Smale Horseshoe}
+%\section{Dimensión de Hasdorff y sus Relativos}
+%\section{Que es Cáos?}
+%
+%\chapter{Machine Learning}
+%
+\chapter{Estado del Arte}
+Fuzzy prediction of chaotic time series based on singular value decomposition
+
+Chaotic time series prediction with residual analysis method using hybrid
+Elman–NARX neural networks
+
+Chaotic Time Series Forecasting Base on Fuzzy Adaptive PSO for Feedforward Neural Network Training 
+Multivariate chaotic time series prediction based on Hierarchic Reservoirs 
+
+Chaotic time series prediction based on phase space reconstruction and LSSVR
+model 
+
+Modelling of Chaotic Time Series Using Minimax Probability Machine
+Regression
+
+State-Space Reconstruction and Prediction of Chaotic Time Series based on Fuzzy
+Clustering
+
+TSK interval type-2 fuzzy neural networks for chaotic time series prediction 
+
+\chapter{Time Series Analysis}
+\section{Conceptos Básicos de las series de tiempo caóticas}
+Se han definido cantidades invariantes al operador de evolución de un sistema
+dimámico y a sus condiciones iniciales. Tales cantidades son tales como la
+\ti{dimensión} y los exponentes de \ti{Lyapunov}. Además son independientes del
+sistema de coordenadas en el cual se observa el atractor. 
+La ventaja de estas cantidades es que otorgan una medida para comparar series de
+tiempos diferentes. %citar el paper referencia
+Los atractores generalmente están definidos en areas finitas, por lo tanto sus
+trayectorias muestran algun tipo de comportamiento oscilatorio (recurrente).
+
+Para mostrar el comportamiento oscilatorio se suele realizar una transformación
+bi-dimensional llamada transformación de Hilbert. 
+
+Para obtener el atractor de una serie de tiempo dada, se debe reconstruir su
+espacio de fase auxiliar mediante algún procedimiento embebido, que es, la
+técnica del tiempo embebido.
+
+
+\subsection{Dimensiones}
+La dimensión cuantifica la auto-similaridad (dimensión fractal) de un objeto
+geométrico [7, 8] .
+
+Para un objeto homogeneo, su dimensión es un numero fijo;
+para un objeto heterogeneo, sus diferentes partes puedente tener dimensiones
+distintas y necesitaría ser caracterizado por una dimension multifractal.
+
+Un atractor caótico suele tener una dimensión fractal. Esta dimensión puede ser
+caracterizada de diferentes formas: \ti{counting-box}, \ti{information
+dimension} and \ti{correlation dimension}.
+
+\newcommand{\e}{\ensuremath{\epsilon}}
+\paragraph{Counting box} $D_0$, se divide la región donde está contenido el
+atractor en regiones de radio o arista \e y revisar cuántas veces ($N(\e)$)
+cubrir los puntos del atractor. 
+$$
+	D_0 = \lim_{\e \rightarrow 0} \frac{\ln N(\e)}{\ln(1/\e)}
+$$
+[AGREGAR EJEMPLOS]
+
+\paragraph{Information Dimension} Una forma abreviada de calcular el \ti{counting box} calcular todas las regiones
+en las cuales las trayectorias sean las mismas.
+
+$$
+	D_1 = \lim_{\e \rightarrow 0} \frac{\ln H(\e)}{\ln(1/\e)}
+$$
+donde
+$$
+	H(\e) = - \sum_{i=1}^{N(\e)} P_i \ln P_i
+$$
+$P_i$ es la frecuencia relativa con la cual una trayectoria típica entra en la
+caja $i$ de cobertura.
+[AGREGAR EJEMPLOS]
+
+\paragraph{Correlation Dimension} Las dimensiones $D_0$ y $D_1$ son costosas de calcular (en tiempo). 
+La dimensión de correlacion por el contrario es mucho más facil de calcular, se
+define como
+$$
+	D_2 = \lim_{\e \rightarrow 0} \frac{\ln \sum_{i=1}^{N(\e)} P_i^2}{\ln \e }
+$$
+donde, el numerador puede ser expresado como [CITAR]
+$$
+\ln \sum_{i=1}^{N(\e)} P_i^2 = C(\epsilon) =
+\frac{2}{N(N-1)}\sum_{j=1}^{N}\sum_{i=1}^{N} \Theta(\e - |x_i - x_j|)
+$$
+
+donde $\Theta(\cdot)$ es la función escalón unitario, $\Theta(x) = 1$, para $x
+\geq 0$ y $0$ en el caso contrario y $|x_i -x_j|$ entre puntos. Con esto, la
+expresión queda definida como:
+$$
+	D_2 = \lim_{\e \rightarrow 0} \frac{\ln C(\e)}{\ln \e}
+$$
+
+La dimensión de correlación puede ser calculada en dos pasos. 
+Determinar $C(\e)$ para varios $m$ [REVISAR]
+
+\subsection{Exponentes de Lyapunov}
+Los exponentes de Lyapunov son la cantidad más importante para determinar si un
+sitema dinámico es caótico.  Un exponente de Lyapunov positivo máximo es una
+fuerte señal de existencia de caos. [CASO CONTRARIO]
+Un sistema $m$ dimensional tiene $m$ exponentes de Lyapunov $\lambda_1,
+\lambda_2, \ldots, \lambda_m$ en orden descendiente.
+
+$$
+	\frac{d\delta x}{dt} = \frac{ \partial F }{ \partial x}  \delta x
+$$
+lo cual genera
+$$
+	\delta x(t) = A^t \delta x(0)
+$$
+donde 
+$$
+	A^t = \exp \{ \textstyle \int (\partial F/\partial x)dt \}
+$$
+es un operador lineal que evoluciona a un vector infinitesimal en el tiempo $0$
+al tiempo $t$. La tasa exponencial promedio de divergencia al vector tangente
+esta dado por
+$$
+	\lambda [ x(x), \delta x(0) ] = \lim_{t \rightarrow \infty} \frac{1}{t}
+\ln  \left\lvert \frac{\delta x(t)}{\delta x(0)} \right\rvert
+$$
+Los exponentes de Lyapunov están dados por
+$$
+	\lambda_i \equiv \lambda[ x(0), e_i]
+$$
+
+donde $e_i$ es un vector base $m$-dimensional. La interpretación de los
+exponentes de Lyapunov es la de la media de las tasas de divergencias locales
+sobre el atractor. Los valores $\lambda_i$ no dependen de las condiciones
+iniciales debido a ergodicidad [CITAR O EXPLICAR].
+
+Para probar si una serie de tiempos es caótica o no, se necesita calcular al
+menos el máximo exponente de Lyapunov $\lambda_i = \lambda_{\text{max}}$
+
+\paragraph{Calculo del exponente de Lyapunov} Para calcular
+$\lambda_{\text{max}}$ se debe hacer lo siguiente [CITAR]
+\begin{itemize}
+	\item Elegir dos puntos iniciales cercanos, cuya distancia $d_0 \ll 1$
+	\item Integrar el sitema dinámico para un intervalo de tiempo pequeño
+$\tau$, cuyos pasos tendrá distancia $d_i$.
+\end{itemize}
+$$
+	\lambda_{\max}=\lim_{n\ra\infty} \frac{1}{n\tau}\sum_{i=1}^{n}
+\ln\frac{d_i}{d_0}
+$$
+Para sistemas dinámicos discretos
+$$
+	\lambda_{\max} = \lim_{N\ra\infty} \frac{1}{N}
+\sum_{n=1}^{N}\ln\frac{\|dx_n\|}{\|dx_{n-1}\|}
+$$
+donde $\|dx_n\| = \sqrt{\sum_{i=1}^{m}[dx_n(i)]^2}$
+
+En la práctica, las series de tiepmo no tenen todos sus puntos equidistantes en
+$t=n\tau$. Por lo cual se puede realizar mediante comparaciones en el tiempo
+[COMPLETAR]
+$$
+	\lambda_{\max} =
+\lim_{N\ra\infty}\frac{1}{t_N-t_0}\sum_{k=1}^{N}\ln\frac{d_1(t_k)}{d_0(t_{k-1})}
+$$
+
+La data experimental generalmente esta contaminada con ruido[EXPLICAR]. Su
+influencia puede ser minimizada usando estadisticos de promedio para calcular
+los exponentes de Lyapunov [PROFUNDIZAR].
+
+
+\subsection{Transformada de Hilbert y Transformada de Fourier y Wavelet}
+Análisis espectral para estudiar la periodicidad de la serie de tiempos. 
+
+[ESCRIBIR SOBRE ESTO]
+
+\subsection{Reconstrucción del Atractor}
+[TAKENS THEOREM]
+La reconstrucción del espacio de fase es la tarea más importante en el análisis
+de series de tiempo caóticas.
+En el caso de las series temporales, la tarea significa descifrar la
+trayectoria porque de ellas usualmente se obtiene un muestreo escalar de algunas
+variables solamente.
+Takens[12], desarrolló un teorema que perimite reconstruir el sistema dinámico
+de una serie de tiempo.
+
+El método de Takens, significa muestrear una serie de tiempo $s(k) = s(t_0 +
+k\Delta t)$ con $\Delta t$ como intervalo de muestreo, de la siguiente manera
+$$
+	u(t) = \{s(t), s(t + \tau), \ldots, s(t + (m-1)\tau) \}
+$$
+
+donde $t=t_0 + k\Delta t$, y $\tau$ es el tiempo de retardo que es múltiplo de
+$\Delta t$ y $m$ es la dimensión embebida del sistema. 
+La determinación de $\tau$ y $m$ son los desafios centrales en la reconstrucción
+del atractor de la serie temporal basado en la técnica de Takens. 
+
+\subsubsection{Dimensión embebida}
+La dimensión embebida del sistema puede ser de un alto grado.
+El teorema de Takens provee una cota inferior para $m$.
+En un espacio de dimensión $m$, hay un subespacio de dimensión $d_1$ y $d_2$,
+genéricamente intersectan en subespacios de dimensión [AGREGAR MAS].
+
+\subsubsection{Time Delay}
+El teorema de la dimensión embebida establece la independencia entre la
+dimensión embebida $m$ y el tiempo de retardo de muestreo (time delay). 
+El valor de $\tau$ debe satistfacer las siguientes condiciones:
+\begin{enumerate}
+	\item $\tau \varpropto \tau_s$, donde $\tau_s$ es el período de
+muestreo.
+	\item $\tau$ no debe ser muy corto, de lo contrario $P(s(t)) \cap
+P(s(t+\tau)) \not = P(s(t))P(s(t+\tau))$ no hay independencia entre las
+variables.
+	\item Si $\tau$ es muy grande, el sitema es intrinsecamente muy
+inestable y las diferencias pueden ser aleatorias respecto a las otras.
+\end{enumerate}
+
+La diferencia entre $s(t)$ y $s(t+\tau)$ debe ser tal que no sean
+estadisticamente independientes ni deterministicamente dependientes.
+
+Es un problema muy complicado, que puede ser resuelto usando el algoritmo de
+elección de información mínima, que proviene de la teória de la información
+[CITAR].
+
+\subsubsection{Información Mutua $I(\tau)$}
+Para datos muestreados $s(t)$, se crea un histograma para observar la
+distribución de la data. Sea $p_i$ la probabilidad empírica que la señal asume
+en el valor de la $i$-ésima clase, y sea $p(\tau)$ la probabilidad de que
+$s(t)$ esté en la $i$-ésima clase y además que $s(t+\tau)$ esté en la $j$-ésima
+clase. Entonces la \ti{información mutua} para un retardo de tiempo $\tau$ es:
+$$
+	I(\tau) = \sum_{i,j} p_{ij}(\tau) \ln p_{ij} (\tau) - 2 \sum_i p_i \ln
+p_i
+$$
+Cuando $\tau=0$, entonces $p_{ij} = p_i \delta_{ij}$, lo cual devela la entropía
+de Shannon de la distribución. 
+
+% Es facil de calcular y obtener
+Algunos autores [Franser and Swinney][19], sugieren que $I(\tau)$, es una
+especiede función de autocorrelación no lineal para determinar el óptimo $\tau$. 
+Lo frecuente es usar el primer mínimo de $I(\tau)$ como marka para obtener el
+tiempo de retardo óptimo para reconstruir el espacio de fase.
+
+[EJEMPLO] El atractor de Lorenz tiene un $\tau_{\min}=10$
+
+
+
+\section{Modelado y Pronóstico}
+
+
+
+\end{document}
+
+
+
